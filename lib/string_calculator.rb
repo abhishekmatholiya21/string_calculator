@@ -2,7 +2,9 @@
 class StringCalculator
   def self.add(numbers)
     return 0 if numbers.empty?
+
     numbers_arr = parse_numbers(numbers)
+    validate_negatives(numbers_arr)
 
     numbers_arr.map(&:to_i).sum
   end
@@ -17,5 +19,11 @@ class StringCalculator
       else
         numbers.gsub("\n", ",").split(',')
       end
+    end
+
+    # Validates the array of numbers to ensure no negative numbers are present.
+    def self.validate_negatives(numbers_arr)
+      negatives = numbers_arr.select { |n| n.to_i.negative? }
+      raise "negative numbers not allowed #{negatives.join(', ')}" if negatives.any?
     end
 end
