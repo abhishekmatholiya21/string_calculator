@@ -43,5 +43,12 @@ describe StringCalculator do
         expect { described_class.add("-1, 22,-2,-3, 5") }.to raise_error("negative numbers not allowed -1, -2, -3")
       end
     end
+
+    context "when a large numbers are passed" do
+      it "returns 500500" do
+        input = (1..1000).to_a.join(",")
+        expect(described_class.add(input)).to eq(500500)
+      end
+    end
   end
 end

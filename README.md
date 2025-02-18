@@ -26,5 +26,5 @@ Before running this project, ensure your system meets the following requirements
 - Failing Rspec
 ![alt text](image.png)
 
-- Passing Rspec
-![alt text](image-1.png)
+- All tests have passed successfully
+![alt text](image-2.png)
