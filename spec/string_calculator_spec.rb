@@ -32,6 +32,12 @@ describe StringCalculator do
       end
     end
 
+    context "when the input contains non-numeric characters and digits" do
+      it "sums only the digits in the input" do
+        expect(described_class.add("dfjgdjg3434")).to eq(3434)
+      end
+    end
+
     context "when negative numbers '-1, 22, -2, -3, 5' are passed" do
       it "throws an exception" do
         expect { described_class.add("-1, 22,-2,-3, 5") }.to raise_error("negative numbers not allowed -1, -2, -3")
